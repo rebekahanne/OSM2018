@@ -42,24 +42,32 @@ if (numstart==0):
         valnew.write("valnew_1." + str(numstart) + ".txt") #write file to disk for restart
         storeVal.append(valnew)
 
-    print(storeVal)
-
 # value function during iteration
 else:
     valnew.read("valnew_1." + str(numstart) + ".txt")  #write file to disk for restart
 
-valold=TasmanianSG.TasmanianSparseGrid()
-valold=valnew
+storeValOld = []
+for jj in range(5):
+    valold=TasmanianSG.TasmanianSparseGrid()
+    valold=storeVal[jj]
+    storeValOld.append(valold)
 
 for i in range(numstart, numits):
-    for j in range(5):
-        pass
-        #valnew=TasmanianSG.TasmanianSparseGrid()
+    storeVal = []
+    for jj in range(5):
+        #pass
+        valnew=TasmanianSG.TasmanianSparseGrid()
         #valnew=interpol_iter.sparse_grid_iter(n_agents, iDepth, valold)
-        #valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, valold)
-        #valold=TasmanianSG.TasmanianSparseGrid()
-        #valold=valnew
-        #valnew.write("valnew_1." + str(i+1) + ".txt")
+        valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, storeValOld[jj])
+        # valold=TasmanianSG.TasmanianSparseGrid()
+        # valold=valnew
+        # valnew.write("valnew_1." + str(i+1) + ".txt")
+        storeVal.append(valnew)
+    storeValOld = []
+    for jj in range(5):
+        valold=TasmanianSG.TasmanianSparseGrid()
+        valold=storeVal[jj]
+        storeValOld.append(valold)
 
 #======================================================================
 print "==============================================================="
