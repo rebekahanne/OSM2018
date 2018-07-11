@@ -31,7 +31,7 @@ def ad_grid_iter(n_agents, iDepth, valold):
     iDim=n_agents
     iOut=1
     # TODO: parameterize this
-    refinement_level = 5
+    refinement_level = 2
     fTol = 1.E-5
 
     # level of grid before refinement
@@ -41,15 +41,21 @@ def ad_grid_iter(n_agents, iDepth, valold):
     aPoints=grid.getPoints()
     iNumP1=aPoints.shape[0]
     aVals=np.empty([iNumP1, 1])
+    aVals1=np.empty([iNumP1, 1])
 
     for iI in range(iNumP1):
         aVals[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)[0]
+        #aVals1[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)
+    print(aVals)
     grid.loadNeededPoints(aVals)
 
     for ik in range(refinement_level):
         grid.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
-        aPoints = grid1.getNeededPoints()
+        aPoints = grid.getNeededPoints()
+        iNumP1=aPoints.shape[0]
         aVals=np.empty([iNumP1, 1])
+
+        print(ik)
 
         file=open("comparison1.txt", 'w')
         for iI in range(iNumP1):
@@ -58,6 +64,7 @@ def ad_grid_iter(n_agents, iDepth, valold):
             to_print=np.hstack((aPoints[iI].reshape(1,n_agents), v))
             np.savetxt(file, to_print, fmt='%2.16f')
 
+        print(aVals)
         file.close()
         grid.loadNeededPoints(aVals)
 
