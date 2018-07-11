@@ -13,7 +13,7 @@ import numpy as np
 #=======================================================================
 #   Objective Function to start VFI (in our case, the value function)
 
-def EV_F(X, k_init, n_agents):
+def EV_F(X, k_init, n_agents, jj):
 
     # Extract Variables
     cons=X[0:n_agents]
@@ -67,19 +67,19 @@ def EV_GRAD_F(X, k_init, n_agents):
 
         if (xAdj[ixN] - h >= 0):
             xAdj[ixN]=X[ixN] + h
-            fx2=EV_F(xAdj, k_init, n_agents)
+            fx2=EV_F(xAdj, k_init, n_agents, jj)
 
             xAdj[ixN]=X[ixN] - h
-            fx1=EV_F(xAdj, k_init, n_agents)
+            fx1=EV_F(xAdj, k_init, n_agents, jj)
 
             GRAD[ixN]=(fx2-fx1)/(2.0*h)
 
         else:
             xAdj[ixN]=X[ixN] + h
-            fx2=EV_F(xAdj, k_init, n_agents)
+            fx2=EV_F(xAdj, k_init, n_agents, jj)
 
             xAdj[ixN]=X[ixN]
-            fx1=EV_F(xAdj, k_init, n_agents)
+            fx1=EV_F(xAdj, k_init, n_agents, jj)
             GRAD[ixN]=(fx2-fx1)/h
 
     return GRAD
@@ -232,13 +232,13 @@ def EV_JAC_G_ITER(X, flag, k_init, n_agents):
     else:
         # Finite Differences
         h=1e-4
-        gx1=EV_G_ITER(X, k_init, n_agents)
+        gx1=EV_G_ITER(X, k_init, n_agents, jj)
 
         for ixM in range(M):
             for ixN in range(N):
                 xAdj=np.copy(X)
                 xAdj[ixN]=xAdj[ixN]+h
-                gx2=EV_G_ITER(xAdj, k_init, n_agents)
+                gx2=EV_G_ITER(xAdj, k_init, n_agents, jj)
                 A[ixN + ixM*N]=(gx2[ixM] - gx1[ixM])/h
         return A
 
