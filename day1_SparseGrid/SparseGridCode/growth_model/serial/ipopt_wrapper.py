@@ -23,7 +23,7 @@ def EV_F(X, k_init, n_agents):
     knext= (1-delta)*k_init + inv
     # Compute Value Function
 
-    VT_sum=utility(cons, lab) + beta*V_INFINITY(knext)
+    VT_sum=utility(cons, lab) + beta*V_INFINITY(jj, knext)
 
     return VT_sum
 
@@ -137,7 +137,7 @@ def EV_G(X, k_init, n_agents, jj):
         G[i+2*n_agents]=inv[i]
 
 
-    f_prod=output_f(k_init, lab, jj)
+    f_prod=output_f(jj, k_init, lab)
     Gamma_adjust=0.5*zeta*k_init*((inv/k_init - delta)**2.0)
     sectors_sum=cons + inv - delta*k_init - (f_prod - Gamma_adjust)
     G[3*n_agents]=np.sum(sectors_sum)
@@ -165,7 +165,7 @@ def EV_G_ITER(X, k_init, n_agents, jj):
         G[i+2*n_agents]=inv[i]
 
 
-    f_prod=output_f(k_init, lab, jj)
+    f_prod=output_f(jj, k_init, lab)
     Gamma_adjust=0.5*zeta*k_init*((inv/k_init - delta)**2.0)
     sectors_sum=cons + inv - delta*k_init - (f_prod - Gamma_adjust)
     G[3*n_agents]=np.sum(sectors_sum)
