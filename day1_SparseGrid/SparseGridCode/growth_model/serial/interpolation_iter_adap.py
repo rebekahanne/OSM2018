@@ -44,7 +44,7 @@ def ad_grid_iter(n_agents, iDepth, valold):
 
     for iI in range(iNumP1):
         aVals[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)[0]
-    grid1loadNeededPoints(aVals)
+    grid.loadNeededPoints(aVals)
 
     for ik in range(refinement_level):
         grid.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
