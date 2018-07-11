@@ -34,8 +34,9 @@ def utility(cons=[], lab=[]):
 #======================================================================
 # output_f
 
-def output_f(kap=[], lab=[], theta=1):
-    fun_val = theta * big_A*(kap**psi)*(lab**(1.0 - psi))
+def output_f(kap=[], lab=[], jj):
+    shocks = np.array([.9, .95, 1, 1.05, 1.10])
+    fun_val = shocks[jj] * big_A*(kap**psi)*(lab**(1.0 - psi))
     return fun_val
 
 #======================================================================

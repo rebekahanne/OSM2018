@@ -58,7 +58,7 @@ for i in range(numstart, numits):
         #pass
         valnew=TasmanianSG.TasmanianSparseGrid()
         #valnew=interpol_iter.sparse_grid_iter(n_agents, iDepth, valold)
-        valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, storeValOld[jj])
+        valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, storeValOld)
         # valold=TasmanianSG.TasmanianSparseGrid()
         # valold=valnew
         # valnew.write("valnew_1." + str(i+1) + ".txt")

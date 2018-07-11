@@ -17,13 +17,13 @@ import nonlinear_solver_iterate as solveriter
 #======================================================================
 
 def ad_grid_iter(n_agents, iDepth, valold):
+    # valold is a list
 
     grid  = TasmanianSG.TasmanianSparseGrid()
 
     k_range=np.array([k_bar, k_up])
 
     ranges=np.empty((n_agents, 2))
-
 
     for i in range(n_agents):
         ranges[i]=k_range
@@ -44,9 +44,11 @@ def ad_grid_iter(n_agents, iDepth, valold):
     aVals1=np.empty([iNumP1, 1])
 
     for iI in range(iNumP1):
-        aVals[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)[0]
-        #aVals1[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)
-    print(aVals)
+        aValTemp = 0
+        for jj in range(5):
+            aValTemp += (1./5) * solveriter.iterate(aPoints[iI], n_agents, valold[jj], jj)[0]
+        aVals[iI]=aValTemp
+    #print(aVals)
     grid.loadNeededPoints(aVals)
 
     for ik in range(refinement_level):
@@ -59,7 +61,10 @@ def ad_grid_iter(n_agents, iDepth, valold):
 
         file=open("comparison1.txt", 'w')
         for iI in range(iNumP1):
-            aVals[iI]=solveriter.iterate(aPoints[iI], n_agents, valold)[0]
+            aValTemp = 0
+            for jj in range(5):
+                aValTemp += (1./5) * solveriter.iterate(aPoints[iI], n_agents, valold[jj], jj)[0]
+            aVals[iI]=aValTemp
             v=aVals[iI]*np.ones((1,1))
             to_print=np.hstack((aPoints[iI].reshape(1,n_agents), v))
             np.savetxt(file, to_print, fmt='%2.16f')
