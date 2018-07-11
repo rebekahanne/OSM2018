@@ -87,7 +87,7 @@ def EV_GRAD_F(X, k_init, n_agents, jj):
 #=======================================================================
 #   Computation of gradient (first order finite difference) of the objective function
 
-def EV_GRAD_F_ITER(X, k_init, n_agents, grid):
+def EV_GRAD_F_ITER(X, k_init, n_agents, grid, jj):
 
     N=len(X)
     GRAD=np.zeros(N, float) # Initial Gradient of Objective Function
