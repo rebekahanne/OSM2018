@@ -1,6 +1,6 @@
 #======================================================================
 #
-#     This routine solves an infinite horizon growth model 
+#     This routine solves an infinite horizon growth model
 #     with dynamic programming and sparse grids
 #
 #     The model is described in Scheidegger & Bilionis (2017)
@@ -21,6 +21,8 @@ import interpolation as interpol              #interface to sparse grid library/
 import interpolation_iter as interpol_iter    #interface to sparse grid library/iteration
 import postprocessing as post                 #computes the L2 and Linfinity error of the model
 
+import interpolation_iter_adap as interpol_iter_adap
+
 import TasmanianSG                            #sparse grid library
 import numpy as np
 
@@ -37,17 +39,18 @@ if (numstart==0):
 # value function during iteration
 else:
     valnew.read("valnew_1." + str(numstart) + ".txt")  #write file to disk for restart
-    
+
 valold=TasmanianSG.TasmanianSparseGrid()
 valold=valnew
 
 for i in range(numstart, numits):
     valnew=TasmanianSG.TasmanianSparseGrid()
-    valnew=interpol_iter.sparse_grid_iter(n_agents, iDepth, valold)
+    #valnew=interpol_iter.sparse_grid_iter(n_agents, iDepth, valold)
+    valnew=interpol_iter.ad_grid_iter(n_agents, iDepth, valold)
     valold=TasmanianSG.TasmanianSparseGrid()
     valold=valnew
     valnew.write("valnew_1." + str(i+1) + ".txt")
-    
+
 #======================================================================
 print "==============================================================="
 print " "
@@ -56,7 +59,7 @@ print " "
 print "==============================================================="
 #======================================================================
 
-# compute errors   
+# compute errors
 avg_err=post.ls_error(n_agents, numstart, numits, No_samples)
 
 #======================================================================
