@@ -176,7 +176,7 @@ def EV_G_ITER(X, k_init, n_agents, jj):
 #   Computation (finite difference) of Jacobian of equality constraints
 #   for first time step
 
-def EV_JAC_G(X, flag, k_init, n_agents):
+def EV_JAC_G(X, flag, k_init, n_agents, jj):
     N=len(X)
     M=3*n_agents+1
     NZ=M*N
@@ -197,13 +197,13 @@ def EV_JAC_G(X, flag, k_init, n_agents):
     else:
         # Finite Differences
         h=1e-4
-        gx1=EV_G(X, k_init, n_agents)
+        gx1=EV_G(X, k_init, n_agents, jj)
 
         for ixM in range(M):
             for ixN in range(N):
                 xAdj=np.copy(X)
                 xAdj[ixN]=xAdj[ixN]+h
-                gx2=EV_G(xAdj, k_init, n_agents)
+                gx2=EV_G(xAdj, k_init, n_agents, jj)
                 A[ixN + ixM*N]=(gx2[ixM] - gx1[ixM])/h
         return A
 
