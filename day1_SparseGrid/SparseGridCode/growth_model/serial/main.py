@@ -33,14 +33,16 @@ import numpy as np
 shocks = np.array([.9, .95, 1, 1.05, 1.10])
 
 # terminal value function
-storeVal = np.array
+storeVal = []
 if (numstart==0):
     for jj in range(5):
         valnew=TasmanianSG.TasmanianSparseGrid()
         valnew=interpol.sparse_grid(n_agents, iDepth)
-        print(valnew)
-        goop
+        #print(valnew)
         valnew.write("valnew_1." + str(numstart) + ".txt") #write file to disk for restart
+        storeVal.append(valnew)
+
+    print(storeVal)
 
 # value function during iteration
 else:
@@ -51,12 +53,13 @@ valold=valnew
 
 for i in range(numstart, numits):
     for j in range(5):
-        valnew=TasmanianSG.TasmanianSparseGrid()
+        pass
+        #valnew=TasmanianSG.TasmanianSparseGrid()
         #valnew=interpol_iter.sparse_grid_iter(n_agents, iDepth, valold)
-        valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, valold)
-        valold=TasmanianSG.TasmanianSparseGrid()
-        valold=valnew
-        valnew.write("valnew_1." + str(i+1) + ".txt")
+        #valnew=interpol_iter_adap.ad_grid_iter(n_agents, iDepth, valold)
+        #valold=TasmanianSG.TasmanianSparseGrid()
+        #valold=valnew
+        #valnew.write("valnew_1." + str(i+1) + ".txt")
 
 #======================================================================
 print "==============================================================="
