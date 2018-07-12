@@ -35,7 +35,8 @@ def utility(cons=[], lab=[]):
 # output_f
 
 def output_f(jj, kap=[], lab=[]):
-    shocks = np.array([.9, .95, 1, 1.05, 1.10])
+    #shocks = np.array([.9, .95, 1, 1.05, 1.10])
+    shocks = np.array([1, 1, 1, 1, 1])
     fun_val = shocks[jj] * big_A*(kap**psi)*(lab**(1.0 - psi))
     return fun_val
 
