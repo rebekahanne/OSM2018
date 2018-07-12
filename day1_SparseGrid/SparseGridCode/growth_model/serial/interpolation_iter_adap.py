@@ -31,7 +31,7 @@ def ad_grid_iter(n_agents, iDepth, valold):
     iDim=n_agents
     iOut=1
     # TODO: parameterize this
-    refinement_level = 2
+    refinement_level = 1
     fTol = 1.E-5
 
     # level of grid before refinement

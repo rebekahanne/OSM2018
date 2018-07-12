@@ -1,5 +1,5 @@
 #======================================================================
-# 
+#
 #     sets the parameters for the model
 #     "Growth Model"
 #
@@ -7,11 +7,11 @@
 #     https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2927400
 #
 #     Simon Scheidegger, 11/16 ; 07/17
-#====================================================================== 
+#======================================================================
 
 import numpy as np
 
-#====================================================================== 
+#======================================================================
 
 # Depth of "Classical" Sparse grid
 iDepth=1
@@ -20,12 +20,12 @@ which_basis = 1 #linear basis function (2: quadratic local basis)
 
 # control of iterations
 numstart = 0   # which is iteration to start (numstart = 0: start from scratch, number=/0: restart)
-numits = 10    # which is the iteration to end
+numits = 3    # which is the iteration to end
 
 # How many random points for computing the errors
 No_samples = 1000
 
-#====================================================================== 
+#======================================================================
 
 # Model Paramters
 
@@ -55,8 +55,4 @@ l_up=1.0
 inv_bar=1e-2
 inv_up=10000.0
 
-#====================================================================== 
-
-
-
-
+#======================================================================
