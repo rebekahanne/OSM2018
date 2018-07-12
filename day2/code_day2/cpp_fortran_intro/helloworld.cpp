@@ -3,7 +3,11 @@
 
 int main()
 {
-  std::cout << "Hello World!"  << std::endl;
   
-  return 0;
+    int a = 4;
+    double b = 4;
+    std::cout << "Hello World!"  << std::endl;
+    std::cout << " a= " << a << " b= " << b <<std::endl;
+
+    return 0;
 }
