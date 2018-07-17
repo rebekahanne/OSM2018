@@ -9,4 +9,4 @@
 
 
 ### MPI executable
-mpiexec -np $SLURM_NTASKS ./1.hello_world_mpi.exec
+mpiexec -np $SLURM_NTASKS ./broadcast.exec
