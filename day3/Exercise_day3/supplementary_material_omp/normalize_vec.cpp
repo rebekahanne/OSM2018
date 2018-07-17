@@ -37,19 +37,25 @@ void normalize_vector(double *v, int n){
 void normalize_vector_omp(double *v, int n)
 {
     double norm = 0.;
+    int i;
 
     // compute the norm of v
-    for(int i=0; i<n; i++)
+    #pragma omp parallel for reduction(+:norm)
+    for(i=0; i<n; i++)
         norm += v[i]*v[i];
+    
     norm = sqrt(norm);
 
     // normalize v
+    #pragma omp for
     for(int i=0; i<n; i++)
         v[i] /= norm;
+
+    
 }
 
 int main( void ){
-    const int N = 40000000;
+    const int N = 400000000;
     double *v = (double*)malloc(N*sizeof(double));
     bool validated = false;
 

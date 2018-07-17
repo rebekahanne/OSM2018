@@ -19,10 +19,12 @@ int main(void){
 
     double time = -omp_get_wtime();
     double dot=0.;
-
+    
+    #pragma omp parallel for reduction(+:dot)
     for(int i=0; i<N; i++) {
-        dot += a[i] * b[i];
+            dot += a[i] * b[i];
     }
+
     time += omp_get_wtime();
 
     // use formula for sum of arithmetic sequence: sum(1:n) = (n+1)*n/2
