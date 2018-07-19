@@ -1,0 +1,3 @@
+using 8 OpenMP threads
+500000000 steps approximates pi as : 3.14159, with relative error 5.55537e-14
+the solution took 1.01934 seconds

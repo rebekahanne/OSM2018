@@ -4,8 +4,8 @@
 
 #SBATCH --time=00:02:00
 
-#SBATCH --output=mpi_test_hello.out
-#SBATCH --error=mpi_test_hello.err
+#SBATCH --output=mpi_broadcast.out
+#SBATCH --error=mpi_broadcast.err
 
 
 ### MPI executable

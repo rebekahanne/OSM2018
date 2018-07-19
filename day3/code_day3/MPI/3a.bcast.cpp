@@ -15,7 +15,7 @@
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     
-    int root_process = 0;
+    int root_process = 2;
     
     if (rank==0){
       data =5;

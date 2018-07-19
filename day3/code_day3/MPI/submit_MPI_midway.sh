@@ -12,7 +12,7 @@
 #SBATCH --mail-type=BEGIN,END,DAIL
 
 # this job requests 4 cores. Cores can be selected from various nodes.
-#SBATCH --ntasks=4
+#SBATCH --ntasks=40
 
 # there are many partitions on Midway1 and it is important to specify which
 # partition you want to run your job on. Not having the following option, the
