@@ -11,7 +11,7 @@
 #SBATCH --output=normalize_vec.out
 #SBATCH --error=normalize_vec.err
 
-export OMP_NUM_THREADS=64
+export OMP_NUM_THREADS=32
 
 
 ### openmp executable
