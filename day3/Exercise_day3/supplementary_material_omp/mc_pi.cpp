@@ -32,8 +32,8 @@ double compute_pi(int N)
 int main ()
 {
         compute_pi(100);
-            compute_pi(1000);
-                compute_pi(10000);
-                    compute_pi(100000);   
+        compute_pi(1000);
+        compute_pi(10000);
+        compute_pi(100000);   
 
 }

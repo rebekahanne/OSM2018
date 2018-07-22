@@ -6,3 +6,5 @@
 0.13498
 0.231833
 0.7722
+
+// Scaling doesn't appear to be monotonic. What's going on here?
