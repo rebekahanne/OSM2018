@@ -1,8 +1,20 @@
 Number of MC draws: 100
-Pi is approximately: 2.84
+Pi is approximately: 3.12
 Number of MC draws: 1000
-Pi is approximately: 3.2
+Pi is approximately: 3.156
 Number of MC draws: 10000
-Pi is approximately: 3.1716
+Pi is approximately: 3.1664
+Number of MC draws: 100
+Pi is approximately: 3.08
+Number of MC draws: 1000
+Pi is approximately: 3.088
+Number of MC draws: 10000
+Pi is approximately: 3.1568
 Number of MC draws: 100000
-Pi is approximately: 3.1458
+Pi is approximately: 3.1408
+Number of MC draws: 100000
+Pi is approximately: 3.13352
+64 threads
+serial     : 0.00761828 seconds	parallel   : 0.0362758 seconds
+speedup    : 0.21001
+efficiency : 0.00328141

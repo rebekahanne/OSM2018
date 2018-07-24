@@ -1,0 +1,6 @@
+iteration 1 max error 11.488971 
+iteration 1 max error 11.488971 
+slurmstepd-midway081: error: *** JOB 47771308 ON midway081 CANCELLED AT 2018-07-22T11:40:09 DUE TO TIME LIMIT ***
+iteration 2 max error 7.133656 
+Iterations took 379.911902 seconds
+Final Part (writing) took 0.623301 seconds

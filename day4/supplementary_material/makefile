@@ -10,17 +10,12 @@ FFLAGS=-O3 -fopenmp
 
 #######################################################################	
 
-all: 1.hello_world_hybrid.exec 1a.hello_world_hybrid.exec
+all: mc_pi.exec
  
 #######################################################################	
 
-## Example 1
-1.hello_world_hybrid.exec: 1.hello_world_hybrid.f90
-	$(FC) $(FFLAGS) 1.hello_world_hybrid.f90 -o 1.hello_world_hybrid.exec
-
-## Example 1a
-1a.hello_world_hybrid.exec: 1a.hello_world_hybrid.cpp
-	$(CXX) $(FFLAGS) 1a.hello_world_hybrid.cpp -o 1a.hello_world_hybrid.exec	
+mc_pi.exec: mc_pi.cpp
+	$(CXX) $(FFLAGS) mc_pi.cpp -o mc_pi.exec	
 	
 
 #######################################################################	

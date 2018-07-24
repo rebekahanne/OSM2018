@@ -3,20 +3,20 @@
 # partition on Midway1 please change the --partition option if you want to use
 # another partition on Midway1
 
-#SBATCH --time=00:01:00
+#SBATCH --time=00:10:00
 
-# set the job name to hello-hybrid
-#SBATCH --job-name=hello-hybrid
+# set the job name to scaling_test
+#SBATCH --job-name=scaling_test
 
-# send output to hello-hybrid.out
-#SBATCH --output=hello-hybrid_40.out
+# send output to scaling_test.out
+#SBATCH --output=scaling_test_1.out
 
 # this job requests 5 MPI processes
-#SBATCH --ntasks=5
+#SBATCH --ntasks=1
 
 
 # and request 16 cpus per task for OpenMP threads
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=1
 
 # this job will run in the sandyb partition on Midway1
 #SBATCH --partition=sandyb

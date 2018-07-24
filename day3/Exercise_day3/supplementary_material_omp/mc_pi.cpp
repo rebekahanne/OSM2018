@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
+#include <omp.h>
 
 using namespace std;
 
@@ -53,9 +54,7 @@ double compute_pi_omp(int N)
 
 int main ()
 {
-        double time_serial = -omp_get_wtime();
         compute_pi(100);
-        time_serial += omp_get_wtime();
         compute_pi(1000);
         compute_pi(10000);
 

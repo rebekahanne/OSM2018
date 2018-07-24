@@ -10,7 +10,7 @@
 
 
 
-module unload openmpi 
+module unload openmpi
 module load mpi4py/1.3+python-2.7-2015q2
 
 mpirun python bcast.py

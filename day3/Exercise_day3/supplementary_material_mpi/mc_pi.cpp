@@ -3,7 +3,7 @@
 #include <math.h>
 #include <mpi.h>
 #include <stdio.h>
-
+#include <omp.h>
 using namespace std;
 
 int main(int argc, char **argv)
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     int count = 0;
     num = N / p;
     
-    #pragma omp parallel for reduction(+:count)
+    //#pragma omp parallel for reduction(+:count)
     for (int i=0; i<num; ++i)
     {
         double x = (double) rand() / RAND_MAX;
